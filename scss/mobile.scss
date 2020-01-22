@@ -1,0 +1,71 @@
+
+// Layouts
+
+// Align icon left
+.l-grid {
+    display: block;
+    padding: 1rem;
+
+    &__item {
+        display: flex;
+        text-align: left;
+
+        i {
+            margin-right: 1.3rem;
+            align-self: center;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.c-clients {
+    .l-grid {
+        display: flex;
+
+        &__item {
+            img {
+                width: 80%;
+            }
+        }
+    }
+}
+
+// smartphones 
+@media(max-width: 650px) {
+
+
+    
+    // Component
+    .c-navbar {
+        flex-direction: column;
+        align-items: center;
+
+        &__logo {
+            font-size: 28px;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+    }
+
+    .c-showcase {
+
+        &__content {
+            top: 130px
+        }
+    }
+
+    .c-who {
+        &__img {
+            display: none;
+        }
+    }
+
+    .c-contact {
+        flex-direction: column;
+
+        &__map {
+            height:200px;
+            border-top: 4px solid #333;
+        }
+    }
+}

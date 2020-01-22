@@ -1,0 +1,10 @@
+.l-grid__item {
+  display: flex;
+  text-align: left; }
+  .l-grid__item i {
+    margin-right: 1.3rem;
+    align-self: center;
+    margin-bottom: 0; }
+
+.c-contact__map {
+  flex: 2; }

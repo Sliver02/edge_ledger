@@ -1,0 +1,26 @@
+
+// Layouts
+
+// Align icon left
+.l-grid {
+    &__item {
+        display: flex;
+        text-align: left;
+
+        i {
+            margin-right: 1.3rem;
+            align-self: center;
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Component
+
+.c-contact {
+    
+    // Enlarge Map
+    &__map {
+        flex: 2;
+    }
+}

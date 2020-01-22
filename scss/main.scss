@@ -1,0 +1,319 @@
+
+$prime: #ff4365;
+$prime-light: #f9ada0;
+$japan: #5b3758;
+$japan-dark: #3b363b;
+
+$gray-dark: #444;
+$gray-light: #eeeeee;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, input, textarea {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+}
+
+a {
+    text-decoration: none;
+    color: $prime-light;
+
+    &:hover {
+        color: $prime;
+    }
+}
+
+p {
+    margin: 0.75rem 0;
+}
+
+input, textarea {
+    border: none;
+}
+
+// Mixin
+@mixin text-primary {
+    &--text-primary {
+        color: $prime;
+    }
+}
+
+@mixin text-center {
+    &--text-center {
+        text-align: center;
+    }
+}
+
+@mixin l-heading {
+    
+    &__l-heading {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        line-height: 1.1em;
+        font-weight: bold;
+    }
+}
+
+@mixin m-heading {
+    &__m-heading {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        // line-height: 2rem;
+        font-weight: bold;
+    }
+}
+
+@mixin bg-light {
+    background: $gray-light;
+    color: $japan-dark;
+}
+
+@mixin bg-dark {
+    background: $japan-dark;
+    color: $gray-light;
+}
+
+@mixin bg-primary {
+    background: $prime;
+    color: white;
+}
+
+
+
+// Layouts
+.l-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+.l-grid {
+    display: flex;
+    padding: 1rem;
+
+    &__item {
+        flex: 1;
+        text-align: center;
+        padding: 1rem;
+
+        i {
+            background: $prime;
+            color: $gray-light;
+            padding: 1rem;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.l-list {
+    margin: 0.5rem 0;
+    list-style: none;
+
+    &__line {
+        padding: 0.5rem 0;
+        border-bottom: #444 dotted 1px;
+    }
+}
+
+
+// Helpers
+
+.h-p-1 {padding: 1.5rem;}
+.h-p-2 {padding: 2rem;}
+.h-p-3 {padding: 3rem;}
+
+.h-py-1 {padding: 1.5rem 0;}
+.h-py-2 {padding: 2rem 0;}
+.h-py-3 {padding: 3rem 0;}
+
+// Component
+.c-btn {
+
+    display: inline-block;
+
+    color: white;
+    background: $japan;
+    padding: 0.75rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 4px;
+
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+        background: $prime;
+    }
+
+    &--nav {
+        background: transparent;
+    }
+
+    &--light {
+        background: $prime;        
+
+        &:hover {
+            background: lighten($prime, 5%);
+        }
+    }
+
+    &--dark {
+        background: $japan-dark;        
+
+        &:hover {
+            background: $japan;
+        }
+    }
+}
+
+.c-form {
+    
+    &__group {
+        margin-bottom: 0.75rem;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+.c-navbar {
+    @include text-primary();
+
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+
+    background: $japan-dark;
+    color: white;
+
+    z-index: 1;
+    padding: 1rem 2rem;
+
+    &__logo {
+        font-size: 32px;
+    }
+
+
+    .l-horizontal-list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+}
+
+.c-showcase {
+    @include l-heading();
+
+    height: 100vh;
+
+    color: white;
+    background: $japan-dark url('../img/showcase.jpg') no-repeat center center/cover;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+        height: 100%;
+
+        padding: 0 2rem;
+        
+        position: absolute;
+        top: 78px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    &__lead {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.c-what {
+    
+    @include bg-light();
+    @include m-heading();
+    @include text-primary();
+    @include text-center();
+    
+}
+
+.c-who {
+    @include text-primary();
+    @include m-heading();
+
+    display: flex;
+
+    &__img, &__text {
+        flex: 1;
+    }
+
+    &__img {
+        background: url('../img/people.jpg') no-repeat center center/cover;
+
+    }
+
+    &__text {
+        @include bg-dark();
+    }
+}
+
+.c-clients {
+
+    @include m-heading();
+    @include text-primary();
+    @include text-center();
+
+    .l-grid {
+        padding: 0;
+
+        &__item {
+            padding: 0;
+
+            img {
+                display: block;
+                margin: auto;
+                width: 60%;
+            }
+        }
+    }
+}
+
+.c-contact {
+    @include bg-primary();
+
+    display: flex;
+    
+    &__form, &__map {
+        flex:1;
+    }
+
+    &__map {
+        background: url("../img/maps.jpg") no-repeat center center/cover;
+    }
+}
+
+.c-footer {
+    @include bg-dark();
+    @include text-center();
+}
